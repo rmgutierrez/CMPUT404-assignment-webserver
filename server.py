@@ -42,10 +42,10 @@ class MyWebServer(socketserver.BaseRequestHandler):
             # Check if path is base directory
             if path[-1] == '/':
                 path+='index.html'
-
             # Check if file path exists
             if self.valid_path('./www' + path):
 
+                # Check what type of file the file path is
                 if path.endswith('.html'):
                     self.handle_html(path)
                 elif path.endswith('.css'):
@@ -53,7 +53,6 @@ class MyWebServer(socketserver.BaseRequestHandler):
                 else:
                     # Status code 301 if no "/" at the end of path
                     self.handle_301_moved(path)
-        
             else:
                 # Return 404 Not found if file path does not exist
                 self.handle_404_not_found()
@@ -63,6 +62,7 @@ class MyWebServer(socketserver.BaseRequestHandler):
             
     def handle_404_not_found(self):
         # Handle sending status code 404 if file path does not exist
+        # Send basic html as well
         status_404 = ('HTTP/1.1 404 Not Found\r\n'
                       'Content-type: text/html\r\n\r\n')
         body = ('<!DOCTYPE html>'
@@ -77,6 +77,8 @@ class MyWebServer(socketserver.BaseRequestHandler):
         self.request.sendall(bytearray(status_405,'utf-8'))
 
     def handle_301_moved(self, path):
+        # Handle status code 301
+        # Move to correct file location
         status_301 = "HTTP/1.1 301 Moved Permanently\r\n"
         content_type = "Content-Type: text/plain\r\n"
         path += '/'
