@@ -28,3 +28,13 @@ Collaborators
 ========================
 * Kaye Ena Crayzhel Misay
 
+Resources
+========================
+- Checking if a file exists
+  - https://www.freecodecamp.org/news/how-to-check-if-a-file-exists-in-python/
+- Read text files in Python
+  - https://www.pythontutorial.net/python-basics/python-read-text-file/
+- Centering text for html when 404 is sent
+  - https://www.computerhope.com/issues/ch001474.htm#:~:text=text%20and%20objects.-,Using%20the%20tags,%3E%20tags.&text=Using%20the%20example%20HTML%20code,Center%20this%20text!
+- Simple intro to bytearrays
+  - https://www.programiz.com/python-programming/methods/built-in/bytearray
